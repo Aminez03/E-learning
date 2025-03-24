@@ -1,0 +1,37 @@
+<mat-card class="feedback-container">
+    <mat-card-title>Ajouter un commentaire</mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <textarea matInput [(ngModel)]="newFeedbackText" placeholder="Écrire un commentaire..."></textarea>
+      </mat-form-field>
+      <div class="actions">
+        <button mat-raised-button color="primary" (click)="addFeedback()" [disabled]="!newFeedbackText.trim()">Ajouter</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  
+  <mat-card class="feedback-list">
+    <mat-card-title>Commentaires</mat-card-title>
+    <mat-list>
+      <mat-list-item *ngFor="let feedback of feedbacks">
+        <mat-card class="comment-card">
+          <mat-card-header>
+            <div class="user-avatar">
+              <mat-icon>account_circle</mat-icon>
+            </div>
+            <div class="comment-header">
+              <h3>{{ feedback.texte }}</h3>
+              <small class="date">{{ feedback.dateCreation | date:'short' }}</small>
+            </div>
+          </mat-card-header>
+  
+          <mat-card-actions align="end">
+            <button mat-icon-button color="warn" (click)="deleteFeedback(feedback.id)">
+              <mat-icon class="delete-icon">delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  

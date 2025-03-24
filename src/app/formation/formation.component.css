@@ -1,0 +1,129 @@
+/* Conteneur principal avec sidebar */
+.sidenav-container {
+    display: flex;
+    min-height: 100vh;
+    margin-top: 50px; /* Ajuster la marge pour compenser la barre de navigation */
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 64px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  }
+  
+  /* Contenu principal à côté du sidebar */
+  .content {
+  padding: 20px;
+  flex-grow: 1;
+  background-color: #ffffff; /* Couleur blanche pour le contenu */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  /* Design des cartes de formations */
+  .formations-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+  
+  .example-card {
+    width: 300px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 8px; /* Coins arrondis */
+    overflow: hidden; /* Masquer les débordements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    background-color: #f9f9f9; /* Couleur de fond des cartes */
+
+  }
+  
+  .example-card:hover {
+    
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus visible au survol */
+  }
+  
+  .example-header-image {
+    background-color: lightgray;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .mat-card-title {
+    font-size: 1.2rem;
+  }
+  
+  .mat-card-subtitle {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .mat-card-content p {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .mat-icon-button {
+    padding: 8px;
+  }
+  
+  /* Styliser le bouton "Ajouter Formation" */
+  button.mat-raised-button {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  button.mat-raised-button mat-icon {
+    margin-right: 8px;
+  }
+  
+  /* Design de la navbar fixe */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .search-bar {
+    width: 300px;
+    margin-left: 20px;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-bar input {
+    border-radius: 4px;
+    padding: 6px 12px;
+  }
+  
+  .search-bar mat-icon {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  

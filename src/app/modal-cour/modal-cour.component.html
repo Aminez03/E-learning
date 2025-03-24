@@ -1,0 +1,32 @@
+<mat-dialog-content [formGroup]="form">
+    <!-- Champ pour l'ID de la formation -->
+    <mat-form-field>
+      <input matInput placeholder="ID de la formation de session" formControlName="formationSessionId" type="number">
+    </mat-form-field>
+    <br />
+  
+    <!-- Champ pour le titre du cours -->
+    <mat-form-field>
+      <input matInput placeholder="Titre du cours" formControlName="titre">
+    </mat-form-field>
+    <br />
+  
+    <!-- Champ pour la description du cours -->
+    <mat-form-field>
+      <textarea matInput placeholder="Description du cours" formControlName="description"></textarea>
+    </mat-form-field>
+    <br />
+  
+    <!-- Champ pour l'URL de la vidéo -->
+    <mat-form-field>
+      <input matInput placeholder="URL de la vidéo" formControlName="videoUrl">
+    </mat-form-field>
+    <br />
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <!-- Bouton pour fermer le formulaire -->
+    <button mat-raised-button (click)="close()">Fermer</button>
+    <!-- Bouton pour enregistrer les données -->
+    <button mat-raised-button color="primary" (click)="save()">Enregistrer</button>
+  </mat-dialog-actions>

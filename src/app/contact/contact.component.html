@@ -1,0 +1,67 @@
+<section class="contact">
+    <div class="container mat-elevation-z8 p-4">
+      <h2 class="text-center mb-4">Contact US </h2>
+      <form (submit)="onSubmit()" class="form-material">
+        <mat-form-field class="w-100 mb-3" appearance="fill">
+          <mat-label>Your Name</mat-label>
+          <input matInput type="text" required [(ngModel)]="contact.name" name="name" />
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 mb-3" appearance="fill">
+          <mat-label>Your Email</mat-label>
+          <input matInput type="email" required [(ngModel)]="contact.email" name="email" />
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 mb-3" appearance="fill">
+          <mat-label>Your Phone Number</mat-label>
+          <input matInput type="tel" required [(ngModel)]="contact.number" name="number" />
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 mb-4" appearance="fill">
+          <mat-label>Your Message</mat-label>
+          <textarea matInput rows="5" required [(ngModel)]="contact.message" name="msg"></textarea>
+        </mat-form-field>
+  
+        <div class="text-center">
+          <button mat-raised-button color="primary" type="submit" class="w-50">Send Message</button>
+        </div>
+      </form>
+    </div>
+  
+    <div class="box-container mt-5">
+      <div class="row">
+        <div class="col-md-4 text-center mb-4">
+          <mat-card class="text-center">
+            <mat-card-content>
+              <mat-icon class="text-primary">phone</mat-icon>
+              <h3>Phone Number</h3>
+        
+              <p><a href="tel:1112223333">111-222-3333</a></p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+  
+        <div class="col-md-4 text-center mb-4">
+          <mat-card class="text-center">
+            <mat-card-content>
+              <mat-icon class="text-primary">email</mat-icon>
+              <h3>Email Address</h3>
+              <p><a href="mailto:">shaikhanasgmail.com</a></p>
+
+            </mat-card-content>
+          </mat-card>
+        </div>
+  
+        <div class="col-md-4 text-center">
+          <mat-card class="text-center">
+            <mat-card-content>
+              <mat-icon class="text-primary">location_on</mat-icon>
+              <h3>Office Address</h3>
+              <p></p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+
+    background-color: #f5f5f5; /* Fond clair pour le conteneur */
+    margin-top: 2.5em;
+  }
+  
+
+  /* Contenu principal */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; /* Permettre le défilement vertical si nécessaire */
+  }
+  /* Styles pour les détails du cours */
+  .detail-cour-container {
+    margin: auto;
+  }
+  
+  .detail-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .header-content {
+    padding: 20px;
+    background-color: #3f51b5; /* Couleur d'accent */
+    color: white; /* Texte en blanc */
+    border-radius: 10px 10px 0 0;
+  }
+  
+  mat-card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  mat-card-subtitle {
+    font-size: 1.1rem;
+    color: #e0e0e0; /* Texte plus clair pour le sous-titre */
+  }
+  
+  mat-card-content {
+    padding: 20px;
+  }
+  
+  mat-card-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333; /* Texte foncé pour le contenu */
+  }
+  
+  video {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    background-color: #f5f5f5; /* Fond clair pour les actions */
+    border-radius: 0 0 10px 10px;
+  }
+  
+  mat-card-actions button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animation au survol */
+  }
+  
+  mat-card-actions button:hover {
+    background-color: #3f51b5; /* Couleur d'accent au survol */
+    color: white; /* Texte blanc au survol */
+  }
+  
+  /* Indicateur de chargement */
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+  }
+  
+  /* Message d'erreur */
+  .error-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d32f2f; /* Rouge pour les erreurs */
+    margin-top: 20px;
+  }

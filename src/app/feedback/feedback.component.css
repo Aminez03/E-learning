@@ -1,0 +1,96 @@
+.feedback-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    
+  }
+  
+  .feedback-list {
+    margin-top: 20px;
+  }
+  
+  .comment-card {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    background-color: #f4f6f8;
+
+  }
+  
+  .comment-content {
+    display: flex;
+    align-items: center;
+    
+    min-height: 100px; /* Augmente la hauteur minimale */
+  }
+  
+  .comment-header {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .comment-header h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .date {
+    font-size: 19px;
+    color: gray;
+  }
+  
+  .user-avatar mat-icon {
+    font-size: 40px;
+    padding:10px;
+    color: #1976d2;
+
+  }
+
+  .delete-icon {
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    color: red;
+    
+
+  }
+
+  .delete-icon:hover {
+    color: darkred;
+    transform: scale(1.2);
+  }
+  
+  /* Fixer l'alignement des icônes de suppression */
+  .comment-actions {
+    display: flex;
+    align-items: end;
+    justify-content: end; 
+    font-size: 24px;
+    margin-top: -100px!important;
+
+ 
+  }
+  
+  mat-list-item {
+    border-bottom: 1px solid #e0e0e0;    
+    padding-top: 50px;
+    padding-bottom: 50px;
+  
+  }
+  

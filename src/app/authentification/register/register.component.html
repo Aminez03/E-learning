@@ -1,0 +1,40 @@
+<div class="container">
+  <mat-card class="auth-card">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="password_confirmation" type="password">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Avatar (optional)</mat-label>
+        <input matInput formControlName="avatar" type="text">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" [disabled]="loading">
+        <mat-progress-spinner *ngIf="loading" diameter="20" mode="indeterminate"></mat-progress-spinner>
+        Register
+      </button>
+
+    </form>
+
+    <p class="switch-auth">Already have an account? <a routerLink="/login">Login</a></p>
+  </mat-card>
+</div>

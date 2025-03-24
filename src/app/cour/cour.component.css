@@ -1,0 +1,17 @@
+.cour-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .no-cours-text {
+    font-style: italic;
+    color: gray;
+    text-align: center;
+  }

@@ -1,0 +1,45 @@
+<div >
+   
+    <!-- Contenu principal -->
+    <div class="content">
+      <div class="header">
+        <h2>Gestion des Cours</h2>
+        <button mat-raised-button color="primary" (click)="open()">
+          <mat-icon>add</mat-icon> Ajouter un Cours
+        </button>
+      </div>
+  
+      <div class="cours-container mat-elevation-z8">
+        <mat-card class="cours-card" *ngFor="let cours of dataSource">
+          <mat-card-header>
+            <mat-card-title>{{ cours.titre }}</mat-card-title>
+            <mat-card-subtitle>Formation ID : {{ cours.formationSessionID }}</mat-card-subtitle>
+          </mat-card-header>
+  
+          <mat-card-content>
+            <p>{{ cours.description }}</p>
+          </mat-card-content>
+          <mat-card-content>
+            <video width="320" height="240" controls>
+              <source src="{{ cours.videoUrl }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </mat-card-content>
+  
+  
+          <mat-card-actions align="end">
+            <button mat-icon-button color="primary" (click)="openEdit(cours.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteCours(cours.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" [routerLink]="['/detail-cour', cours.id]">
+                <mat-icon>visibility</mat-icon>
+              </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

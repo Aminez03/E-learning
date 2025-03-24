@@ -1,0 +1,71 @@
+<div class="container">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Conteneur principal -->
+  <div class="content">
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <div class="header-content">
+          <!-- Image à côté du titre -->
+          <img *ngIf="formation?.image" 
+          [src]="formation?.image" 
+          alt="Image de {{ formation?.nomFormation }}" 
+          style="width: 200px; height: 200px; display: block;">
+     
+
+
+          <div>
+            <mat-card-title>{{ formation?.nomFormation }}</mat-card-title>
+            <mat-card-subtitle>Niveau : {{ formation?.niveau }}</mat-card-subtitle>
+          </div>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p><strong>Description :</strong> {{ formation?.description }}</p>
+        <p><strong>Durée :</strong> {{ formation?.duree }} mois</p>
+    
+
+        <h3>Sessions disponibles :</h3>
+        <mat-list *ngIf="sessions.length > 0; else noSessions">
+          <mat-list-item *ngFor="let session of sessions">
+            <p matLine>
+              <strong>Date de début :</strong> {{ session.dateDebut | date:'dd/MM/yyyy' }} - 
+              <strong>Date de fin :</strong> {{ session.dateFin | date:'dd/MM/yyyy' }}
+            </p>
+            <p matLine>
+              <strong>Statut :</strong> {{ session.statut }} - 
+              <strong>Capacité :</strong> {{ session.capacite }} places - 
+
+              <strong>Inscrits :</strong> {{ session.nombreInscrits }}
+
+              <strong>Formateur :</strong> {{ session.formateurID }}
+
+              
+            </p>
+          </mat-list-item>
+        </mat-list>
+
+        <ng-template #noSessions>
+          <p class="no-session-text">Aucune session disponible pour cette formation.</p>
+        </ng-template>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/formations">
+          <mat-icon>arrow_back</mat-icon> Retour à la liste
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <!-- Section de gestion des cours -->
+  <div>
+    <app-cour></app-cour>
+  </div>
+
+  </div>
+
+ 
+
+  
+</div>

@@ -1,0 +1,111 @@
+<mat-toolbar color="primary" class="navbar">
+    
+    <span>E-learning</span>
+
+    
+<!-- sidebar.component.html -->
+ <mat-form-field>
+  <mat-label>Categorie</mat-label>
+  <mat-select (selectionChange)="onCategorieChange($event.value)">
+    <mat-option *ngFor="let category of Categories" [value]="category.id">
+      {{ category.nomCategorie }}
+    </mat-option>
+  </mat-select>
+</mat-form-field> 
+
+
+<mat-form-field *ngIf="sousCategories.length > 0">
+  <mat-label>SousCategorie</mat-label>
+  <mat-select (selectionChange)="onSousCategorieChange($event.value)">
+    <mat-option *ngFor="let sousCategory of sousCategories" [value]="sousCategory.id">
+      {{ sousCategory.nomSousCategorie }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+    <span class="spacer"></span>
+
+    <mat-form-field>
+      <input matInput type="search">
+      <button matSuffix mat-icon-button aria-label="Search">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+ 
+  
+
+    <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+    <mat-icon>menu</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="toggleProfileMenu()" class="profile-button">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+   
+  
+
+
+
+
+
+  </mat-toolbar>
+  <div *ngIf="isProfileMenuOpen" class="profile-menu">
+
+
+    <div class="profile-avatar">
+      <img [src]="userData.avatar || 'assets/image/pic-1.jpg'" alt="Photo de Profil" class="avatar">
+      <h3>{{ userData.nom || 'Utilisateur' }}</h3>
+
+
+      <button mat-button routerLink="/login"   class="login-button">
+        <mat-icon>login</mat-icon> Connexion
+      </button>
+      
+      <button mat-button routerLink="/register"  class="login-button">
+        <mat-icon>person_add</mat-icon> Inscription
+      </button>
+      
+      <button mat-button routerLink="/logout" color="warn" class="logout-button">
+        <mat-icon>exit_to_app</mat-icon> Déconnexion
+      </button>
+      
+
+    </div>
+
+
+
+
+
+  </div>
+  <mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav #sidenav mode="side" opened class="sidebar">
+      <div class="profile">
+    
+        <img [src]="userData.avatar || 'assets/image/pic-1.jpg'" alt="Photo de Profil" class="avatar">
+        <h3>{{ userData.nom || 'Utilisateur' }}</h3>
+        <button mat-button color="primary" class="profile-btn">View Profile</button>
+      </div>
+
+      <mat-nav-list>
+        <a mat-list-item routerLink="/home">
+          <mat-icon>home</mat-icon> Home
+        </a>
+        <a mat-list-item routerLink="/about">
+          <mat-icon>help</mat-icon> About
+        </a>
+        <a mat-list-item routerLink="/formations">
+          <mat-icon>school</mat-icon> Courses
+        </a>
+        <a mat-list-item routerLink="/teachers">
+          <mat-icon>people</mat-icon> Teachers
+        </a>
+        <a mat-list-item routerLink="/contact">
+          <mat-icon>contact_support</mat-icon> Contact Us
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+  </mat-sidenav-container>
