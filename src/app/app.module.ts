@@ -59,6 +59,9 @@ import * as FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 
 import { UploadImageComponent } from './upload-image/upload-image.component';
 
+import { DetailSessionComponent } from './detail-session/detail-session.component';
+import { ModalSessionComponent } from './modal-session/modal-session.component';
+
 // Enregistrer le plugin FilePond (obligatoire pour la gestion des images)
 registerPlugin(FilePondPluginImagePreview);
 
@@ -83,7 +86,10 @@ registerPlugin(FilePondPluginImagePreview);
          ContactComponent,
         LoginComponent,
          RegisterComponent,
-         UploadImageComponent
+         UploadImageComponent,
+       
+         DetailSessionComponent,
+                  ModalSessionComponent
 
   ],
   imports: [

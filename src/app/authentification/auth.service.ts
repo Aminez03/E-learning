@@ -64,7 +64,24 @@ export class AuthService {
   isUser(): boolean {
     return this.userRole === 'user';
   }
+  getUserByID(id: number): Observable<any> {
+    return this.http.get<any>(`${API_URL}/${id}`);
+  }
+
+  getUsersByRole(role: string, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Ajouter le token d'authentification
+    });
+
+    return this.http.get<any>(`${API_URL}/role/${role}`, { headers });
+  }
 
 
+  blockUser(id: number, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` 
+    });
 
+    return this.http.post(`${API_URL}/${id}/block`, {}, { headers });
+  }
 }

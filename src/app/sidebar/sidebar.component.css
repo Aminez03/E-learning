@@ -1,55 +1,80 @@
 /* ===== NAVBAR ===== */
+/* ===== NAVBAR ===== */
+/* Assure-toi que la navbar est bien définie */
 .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 60px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+  padding: 0 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+}
+
+/* Ajuste les éléments de la navbar */
+.navbar mat-form-field {
+  margin-left: auto;
+  width: 250px;
+  margin-top: -10px;
+}
+
+.navbar mat-select {
+  min-width: 180px;
+}
+
+/* Corrige le champ de recherche */
+.navbar mat-form-field {
+  background: white;
+  border-radius: 20px;
+  padding: 5px 10px;
   display: flex;
   align-items: center;
-  background-color: #007bff;
-  color: white;
-  font-size: 18px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Corrige les boutons */
+.navbar button {
+  margin-left: 10px;
 }
 
 .spacer { flex: 1; }
 
 /* ===== BARRE DE RECHERCHE ===== */
 mat-form-field {
-  width: 300px;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  border-radius: 50px;
+  width: 280px;
+  margin: 8px;
 }
 
 mat-form-field input {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  border: none;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 mat-form-field button {
-  background-color: #007bff;
+  background-color: transparent;
   border-radius: 50%;
   padding: 8px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 mat-form-field button:hover {
-  background-color: #0056b3;
+  background-color: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
 }
-
 /* ===== BOUTONS ===== */
 .menu-button, .profile-button, .logout-button {
   transition: all 0.3s ease;
   border-radius: 50%;
-  padding: 12px;
+  margin-top: -52px;
   background-color: transparent;
   display: inline-flex;
   align-items: center;
@@ -62,18 +87,26 @@ mat-form-field button:hover {
 }
 
 .logout-button {
+  display: block; /* S'assurer qu'il s'affiche correctement */
+  width: 100%; /* Occupe toute la largeur */
+  font-size: 16px; /* Texte plus lisible */
+  font-weight: bold;
+  text-align: center; /* Centrer le texte */
+  color: #ff3b30; /* Rouge pour la déconnexion */
   border: 2px solid #ff3b30;
-  color: #ff3b30;
-  width: 100%;
-  font-size: 14px;
-  text-align: center;
+  border-radius: 8px; /* Coins arrondis */
+  background-color: transparent;
+  transition: all 0.3s ease-in-out; /* Animation fluide */
+  cursor: pointer; /* Indique que c'est un bouton */
+  margin-top: 10px; /* Éviter que le texte ne se chevauche */
 }
 
 .logout-button:hover {
-  background-color: #ff3b30;
-  color: white;
-  transform: scale(1.05);
+  background-color: #ff3b30; /* Rouge au survol */
+  color: white; /* Texte blanc au survol */
+  transform: scale(1.05); /* Légère mise en avant */
 }
+
 
 /* ===== SIDENAV ===== */
 .sidebar {

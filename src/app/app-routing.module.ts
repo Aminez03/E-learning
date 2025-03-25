@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { LogoutComponent } from './authentification/logout/logout.component';
+import { DetailSessionComponent } from './detail-session/detail-session.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/formations', pathMatch: 'full' },
@@ -45,6 +46,10 @@ const routes: Routes = [
   },
   { path: 'modal-formation', component: ModalFormationComponent },
   { path: 'detail-formation/:id', component: DetailFormationComponent },
+
+  { path: 'session/:id', component: DetailSessionComponent },
+
+
   { path: '**', redirectTo: '/home' } // Redirection vers Home en cas de route inconnue
 ];
 

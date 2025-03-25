@@ -7,12 +7,12 @@ import { Feedback } from 'src/Models/Feedback';
   providedIn: 'root'
 })
 export class FeedbackService {
-  private apiUrl = 'http://localhost:3000/feedbacks'; // Modifier selon ton API
-
+  private apiUrl = 'https://ihm-eta.vercel.app/api/api/feedbacks'; // Modifier selon ton API
+  private apiSession = 'https://ihm-eta.vercel.app/api/api/formationSessions';
   constructor(private http: HttpClient) {}
 
-  getFeedbacksByCourse(coursId: number): Observable<Feedback[]> {
-    return this.http.get<Feedback[]>(`${this.apiUrl}?coursId=${coursId}`);
+  getFeedbacksBySession(formationSessionIDId: number): Observable<Feedback[]> {
+    return this.http.get<Feedback[]>(`${this.apiSession}/${formationSessionIDId}/feedbacks`);
   }
 
   addFeedback(feedback: Feedback): Observable<Feedback> {

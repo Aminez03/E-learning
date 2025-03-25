@@ -1,96 +1,136 @@
+/* Global container */
 .feedback-container {
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    background: #fff;
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-  
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 15px;
-    
-  }
-  
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section title */
+.feedback-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Ajouter un commentaire */
+mat-card.feedback-container {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-title {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Form input field */
+.full-width {
+  width: 100%;
+}
+
+/* Button actions */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+/* Feedback list */
+.feedback-list {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* No feedback message */
+.no-feedback {
+  text-align: center;
+  color: #757575;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Feedback item */
+.feedback-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* User avatar */
+.user-avatar {
+  margin-right: 12px;
+}
+
+.user-avatar mat-icon {
+  font-size: 42px;
+  width: 42px;
+  height: 42px;
+  color: #616161;
+}
+
+/* Feedback text */
+.feedback-item span {
+  flex-grow: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Feedback date */
+.date {
+  font-size: 12px;
+  color: #757575;
+  margin-left: 10px;
+}
+
+/* Delete button */
+.delete-btn {
+  background: #d32f2f;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #b71c1c;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .feedback-container,
   .feedback-list {
-    margin-top: 20px;
+    margin: 10px;
+    padding: 15px;
   }
-  
-  .comment-card {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    background-color: #f4f6f8;
 
-  }
-  
-  .comment-content {
-    display: flex;
-    align-items: center;
-    
-    min-height: 100px; /* Augmente la hauteur minimale */
-  }
-  
-  .comment-header {
-    display: flex;
+  .feedback-item {
     flex-direction: column;
-    margin-left: 20px;
-    margin-top: 20px;
-  }
-  
-  .comment-header h3 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 500;
-    color: #333;
-  }
-  
-  .date {
-    font-size: 19px;
-    color: gray;
-  }
-  
-  .user-avatar mat-icon {
-    font-size: 40px;
-    padding:10px;
-    color: #1976d2;
-
+    align-items: flex-start;
+    padding: 15px;
   }
 
-  .delete-icon {
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
-    color: red;
-    
-
+  .user-avatar {
+    margin-bottom: 8px;
   }
 
-  .delete-icon:hover {
-    color: darkred;
-    transform: scale(1.2);
+  .actions {
+    justify-content: center;
   }
-  
-  /* Fixer l'alignement des icônes de suppression */
-  .comment-actions {
-    display: flex;
-    align-items: end;
-    justify-content: end; 
-    font-size: 24px;
-    margin-top: -100px!important;
-
- 
-  }
-  
-  mat-list-item {
-    border-bottom: 1px solid #e0e0e0;    
-    padding-top: 50px;
-    padding-bottom: 50px;
-  
-  }
-  
+}

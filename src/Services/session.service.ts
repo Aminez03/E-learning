@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Session } from 'src/Models/Session';
@@ -7,10 +7,23 @@ import { Session } from 'src/Models/Session';
   providedIn: 'root'
 })
 export class SessionService {
-  private apiUrl = 'http://localhost:3000/sessions';
+  private apiUrl = 'https://ihm-eta.vercel.app/api/api/formationSessions';
 
   constructor(private http: HttpClient) {}
 
+  inscrire(sessionId: number, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`, 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
+    return this.http.post(`${this.apiUrl}/${sessionId}/register`, {}, { headers });
+  }
+  getAllCandidatsBySessionId(formationSessionID: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${formationSessionID}/candidats`);
+  }
+  
+  
   getAll(): Observable<Session[]> {
     return this.http.get<Session[]>(this.apiUrl);
   }

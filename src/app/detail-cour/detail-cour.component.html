@@ -1,51 +1,51 @@
 <div class="container">
-    <!-- Barre latérale -->
-    <app-sidebar></app-sidebar>
-  
-    <!-- Contenu principal -->
-    <div class="main-content">
+  <!-- Barre latérale -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Contenu principal -->
+  <div class="main-content">
       <div class="detail-cour-container">
-        <!-- Indicateur de chargement -->
-        <div *ngIf="isLoading" class="loading-spinner">
-          <mat-spinner diameter="50"></mat-spinner>
-          <p>Chargement en cours...</p>
-        </div>
-  
-        <!-- Message d'erreur -->
-        <div *ngIf="errorMessage" class="error-message">
-          <mat-icon>error_outline</mat-icon>
-          <p>{{ errorMessage }}</p>
-        </div>
-  
-        <!-- Détails du cours -->
-        <mat-card *ngIf="cour && !isLoading" class="detail-card">
-          <mat-card-header>
-            <div class="header-content">
-              <mat-card-title>{{ cour.titre }}</mat-card-title>
-              <mat-card-subtitle>ID du cours : {{ cour.id }}</mat-card-subtitle>
-            </div>
-          </mat-card-header>
-  
-          <mat-card-content>
-            <p><strong>Description :</strong> {{ cour.description }}</p>
-            <mat-card-content>
-              <video width="100%" controls>
-                <source src="{{ cour.videoUrl }}" type="video/mp4" />
-                Votre navigateur ne supporte pas la lecture de vidéos.
-              </video>
-            </mat-card-content>
-            <p><strong>Session associée :</strong> ID {{ cour.formationSessionID }}</p>
-          </mat-card-content>
-  
-          <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="/cours">
-              <mat-icon>arrow_back</mat-icon> Retour à la liste
-            </button>
-          </mat-card-actions>
-        </mat-card>
-  
-        <!-- Section des commentaires -->
-        <app-feedback *ngIf="cour?.id !== undefined"></app-feedback>
+          <!-- Indicateur de chargement -->
+          <div *ngIf="isLoading" class="loading-spinner">
+              <mat-spinner diameter="50"></mat-spinner>
+              <p>Chargement en cours...</p>
+          </div>
+
+          <!-- Message d'erreur -->
+          <div *ngIf="errorMessage" class="error-message">
+              <mat-icon>error_outline</mat-icon>
+              <p>{{ errorMessage }}</p>
+          </div>
+
+          <!-- Détails du cours -->
+          <mat-card *ngIf="cour && !isLoading" class="detail-card">
+              <div class="header">
+                  <mat-card-actions>
+                      <button mat-raised-button color="primary" [routerLink]="['/session', cour.formationSessionID]">
+                          <mat-icon>arrow_back</mat-icon> Retour à la liste
+                      </button>
+                  </mat-card-actions>
+              </div>
+
+              <mat-card-header>
+                  <div class="header-content">
+                      <mat-card-title>{{ cour.titre }}</mat-card-title>
+                      <mat-card-subtitle>ID du cours : {{ cour.id }}</mat-card-subtitle>
+                  </div>
+              </mat-card-header>
+
+              <mat-card-content>
+                  <p><strong>Description :</strong> {{ cour.description }}</p>
+                  <mat-card-content>
+                      <video width="100%" controls>
+                          <source src="{{ cour.videoURL }}" type="video/mp4" />
+                          Votre navigateur ne supporte pas la lecture de vidéos.
+                      </video>
+                  </mat-card-content>
+              </mat-card-content>
+          </mat-card>
+
+          
       </div>
-    </div>
   </div>
+</div>

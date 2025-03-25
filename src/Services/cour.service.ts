@@ -7,8 +7,8 @@ import { Cour } from 'src/Models/Cour';
   providedIn: 'root'
 })
 export class CourService {
-  private apiUrl = 'https://ihm-eta.vercel.app/api/api/cours'; // URL pour les cours
-
+  private apiUrl = 'https://ihm-eta.vercel.app/api/api/cours'; 
+  private apiUrlSession = 'https://ihm-eta.vercel.app/api/api/formationSessions';
   constructor(private http: HttpClient) {}
 
   // Récupérer tous les cours
@@ -17,10 +17,10 @@ export class CourService {
   }
 
 // Méthode pour récupérer les cours par sessionid
-  getAllCoursBySessionId(formationSessionID: number): Observable<Cour[]> {
-    return this.http.get<Cour[]>(`${this.apiUrl}/${formationSessionID}/formations`);
-  }
-  
+getAllCoursBySessionId(formationSessionID: number): Observable<Cour[]> {
+  return this.http.get<Cour[]>(`${this.apiUrlSession}/${formationSessionID}/cours`);
+}
+
 
   // Récupérer les cours d'une formation spécifique
   getCoursById(id: number): Observable<Cour> {

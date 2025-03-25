@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    height: 100%;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .session-card, .candidat-card {
+
+    border-radius: 12px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .session-title, .text-center {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #3f51b5;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .icon-title {
+    margin-right: 8px;
+    color: #3f51b5;
+  }
+  
+  .session-table {
+    max-width: 1500px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .session-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .session-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .session-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .icon {
+    vertical-align: middle;
+    margin-right: 5px;
+    color: #757575;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .actions button {
+    font-weight: bold;
+  }
+  
+  table.mat-elevation-z8 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  th, td {
+    padding: 12px;
+
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #3f51b5;
+    color: #3f51b5;
+  }
+  
+  .mat-card-actions button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  

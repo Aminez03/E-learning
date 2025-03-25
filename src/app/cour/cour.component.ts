@@ -19,17 +19,25 @@ export class CourComponent {
 
   ngOnInit(): void {
     this.fetchData();
+    console.log(this.dataSource)
+    
   }
 
   fetchData(): void {
-    
-    const formationId = this.route.snapshot.params['id'];
-
-
-    this.courService.getAllCoursBySessionId(formationId).subscribe((data) => {
-      this.dataSource = data;
+    const formationSessionId = this.route.snapshot.params['id'];
+  
+    this.courService.getAllCoursBySessionId(formationSessionId).subscribe((data) => {
+      console.log(data); // Ajoutez cette ligne pour inspecter la réponse
+      // Assurez-vous que data est un tableau
+      if (Array.isArray(data)) {
+        this.dataSource = data;
+      } else {
+        console.error("Les données reçues ne sont pas un tableau.");
+        this.dataSource = [];
+      }
     });
   }
+  
 
   open(): void {
     let dialogRef = this.dialog.open(ModalCourComponent, {

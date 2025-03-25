@@ -1,0 +1,67 @@
+<mat-dialog-content [formGroup]="form">
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Choisissez une plage de dates</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate formControlName="dateDebut" placeholder="Date de début" (dateChange)="onDateChange($event, 'start')">
+      <input matEndDate formControlName="dateFin" placeholder="Date de fin" (dateChange)="onDateChange($event, 'end')">
+    </mat-date-range-input>
+    <mat-hint>Format: YYYY-MM-DD</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+
+
+    <!-- Champ pour le statut de la session -->
+    <mat-form-field>
+      <mat-label>Statut</mat-label>
+      <mat-select formControlName="statut">
+        <mat-option value="Planifiée">Planifiée</mat-option>
+        <mat-option value="En cours">En cours</mat-option>
+        <mat-option value="Terminée">Terminée</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+  
+    <!-- Champ pour la capacité de la session -->
+    <mat-form-field>
+      <mat-label>Capacité</mat-label>
+      <input matInput type="number" formControlName="capacite">
+    </mat-form-field>
+    <br>
+  
+    <!-- Champ pour le nombre d'inscrits -->
+    <mat-form-field>
+      <mat-label>Nombre d'inscrits</mat-label>
+      <input matInput type="number" formControlName="nombreInscrits" [disabled]="true">
+    </mat-form-field>
+    <br>
+  
+    <!-- Sélection de la formation -->
+    <mat-form-field *ngIf="formations.length > 0">
+      <mat-label>Formation</mat-label>
+      <mat-select formControlName="formationID">
+        <mat-option *ngFor="let formation of formations" [value]="formation.id">
+          {{ formation.nomFormation }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+  
+    <!-- Sélection du formateur -->
+    <mat-form-field *ngIf="formateurs.length > 0">
+      <mat-label>Formateur</mat-label>
+      <mat-select formControlName="formateurID">
+        <mat-option *ngFor="let formateur of formateurs" [value]="formateur.id">
+          {{ formateur.nom }} {{ formateur.prenom }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Fermer</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Enregistrer</button>
+  </mat-dialog-actions>
+  
