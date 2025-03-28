@@ -37,6 +37,10 @@
       <input matInput type="number" formControlName="nombreInscrits" [disabled]="true">
     </mat-form-field>
     <br>
+    <mat-form-field>
+      <mat-label>Nombre de cours</mat-label>
+      <input matInput type="number" formControlName="nombreCours" [disabled]="true">
+    </mat-form-field>
   
     <!-- Sélection de la formation -->
     <mat-form-field *ngIf="formations.length > 0">

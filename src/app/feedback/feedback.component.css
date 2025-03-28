@@ -106,6 +106,7 @@ mat-card-title {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
+
 }
 
 .delete-btn:hover {

@@ -1,15 +1,19 @@
 <div class="cours-section">
   <!-- Contenu principal -->
+  <app-sidebar></app-sidebar>
+  <br>
+  <br>
   <div class="content">
     <div class="header">
+     
       <h2>Gestion des Cours</h2>
-      <button mat-raised-button color="primary" (click)="open()">
+      <button *ngIf="isFormateur()" mat-raised-button color="primary" (click)="open()">
         <mat-icon>add</mat-icon> Ajouter un Cours
       </button>
     </div>
 
     <div class="cours-container mat-elevation-z8">
-      <mat-card class="cours-card" *ngFor="let cours of dataSource || []">
+      <mat-card class="cours-card" *ngFor="let cours of paginatedCours || []">
         <mat-card-header>
           <mat-card-title>{{ cours.titre }}</mat-card-title>
           <mat-card-subtitle>Formation ID : {{ cours.formationSessionID }}</mat-card-subtitle>
@@ -27,20 +31,73 @@
         </mat-card-content>
 
         <mat-card-actions align="end">
-          <button mat-icon-button color="primary" (click)="openEdit(cours.id)">
+          <button *ngIf="isFormateur()" mat-icon-button color="primary" (click)="openEdit(cours.id)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="deleteCours(cours.id)">
+          <button *ngIf="isFormateur()" mat-icon-button color="warn" (click)="deleteCours(cours.id)">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button color="accent" [routerLink]="['/detail-cour', cours.id]">
             <mat-icon>visibility</mat-icon>
           </button>
         </mat-card-actions>
+        
       </mat-card>
+      
     </div>
+
+    <div class="container">
+      <div *ngIf="progression; else loading">
+        <mat-card class="progress-card">
+          <mat-card-content>
+            <h2 class="progress-heading">Votre progression</h2>
+    
+            <!-- MatProgressSpinner to display progression -->
+            <mat-progress-spinner
+              class="progress-spinner"
+              [mode]="'determinate'"
+              [value]="progressionValue"
+              [strokeWidth]="5">
+            </mat-progress-spinner>
+    
+            <!-- Display progression percentage below the spinner -->
+            <p class="progress-percentage">
+              {{ progressionValue }}%
+            </p>
+          </mat-card-content>
+        </mat-card>
+
+        
+        <div class="button-container">
+          <button mat-raised-button color="accent" [routerLink]="['/examan', this.sessionid]">
+            <mat-icon>assignment</mat-icon> Aller à l'examen
+          </button>
+        </div>
+      </div>
+    
+      <!-- Template for loading state -->
+      <ng-template #loading>
+        <div class="loading-container">
+          <mat-spinner></mat-spinner>
+          <p>Chargement des données...</p>
+        </div>
+      </ng-template>
+    </div>
+
+
+
     <div *ngIf="dataSource?.length === 0" class="no-cours-text">
       <p>Aucun cours disponible pour cette formation.</p>
     </div>
+
+    <!-- Paginator -->
+    <mat-paginator
+      [length]="dataSource.length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="updatePaginatedCours()"
+      aria-label="Select page"
+    >
+    </mat-paginator>
   </div>
 </div>

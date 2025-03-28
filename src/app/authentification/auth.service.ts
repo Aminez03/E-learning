@@ -28,9 +28,13 @@ export class AuthService {
     });
   }
 
+
+
+
   // Login a user
   signin(user: any) {
     return this.http.post<any>(`${API_URL}/login`, user);
+
   }
 
   // Logout a user
@@ -49,13 +53,15 @@ export class AuthService {
       })
     );
   }
-
-  // Get user profile
-  profile() {
+// Get user profile
+  profil() {
     const token = localStorage.getItem("CC_Token");
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${API_URL}/user-profile`, { headers });
   }
+
+
+
 
 
   isAdmin(): boolean {
@@ -64,6 +70,12 @@ export class AuthService {
   isUser(): boolean {
     return this.userRole === 'user';
   }
+  isFormateur(): boolean {
+    return this.userRole === 'formateur';
+  }
+
+
+
   getUserByID(id: number): Observable<any> {
     return this.http.get<any>(`${API_URL}/${id}`);
   }
@@ -84,4 +96,21 @@ export class AuthService {
 
     return this.http.post(`${API_URL}/${id}/block`, {}, { headers });
   }
+// Get user profile
+profile() {
+  const token = localStorage.getItem("CC_Token");
+  console.log("Token récupéré :", token); // Vérifie si le token est correct
+  if (!token) {
+    console.error("Aucun token trouvé !");
+    return;
+  }
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.get(`${API_URL}/user-profile`, { headers });
+}
+updateUser(userData: any): Observable<any> {
+  const token = localStorage.getItem("CC_Token");
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.put(`${API_URL}/${userData.id}`, userData, { headers });
+}
+  
 }

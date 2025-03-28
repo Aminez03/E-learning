@@ -18,7 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 // FlexLayout pour la mise en page
@@ -42,7 +42,7 @@ import { CourComponent } from './cour/cour.component';
 import { ModalCourComponent } from './modal-cour/modal-cour.component';
 import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
 import { DetailCourComponent } from './detail-cour/detail-cour.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+// Removed duplicate import of MatProgressSpinnerModule
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -61,10 +61,16 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
 
 import { DetailSessionComponent } from './detail-session/detail-session.component';
 import { ModalSessionComponent } from './modal-session/modal-session.component';
+import { ProfilComponent } from './profil/profil.component';
+import { EditProfileDialogComponentComponent } from './edit-profile-dialog-component/edit-profile-dialog-component.component';
+import { ExamenComponent } from './examen/examen.component';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 // Enregistrer le plugin FilePond (obligatoire pour la gestion des images)
 registerPlugin(FilePondPluginImagePreview);
-
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { CertificatComponent } from './certificat/certificat.component';
+import { CertifSessionComponent } from './certif-session/certif-session.component';
 
 
 @NgModule({
@@ -89,10 +95,16 @@ registerPlugin(FilePondPluginImagePreview);
          UploadImageComponent,
        
          DetailSessionComponent,
-                  ModalSessionComponent
+                  ModalSessionComponent,
+                  ProfilComponent,
+                  EditProfileDialogComponentComponent,
+                  ExamenComponent,
+                  CertificatComponent,
+                  CertifSessionComponent
 
   ],
   imports: [
+    NgCircleProgressModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -121,7 +133,8 @@ registerPlugin(FilePondPluginImagePreview);
     MatSelectModule,
     MatSnackBarModule,
     FilePondModule,
-  
+    
+    MatPaginatorModule // Ajoute MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent],

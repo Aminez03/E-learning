@@ -1,6 +1,4 @@
 /* ===== NAVBAR ===== */
-/* ===== NAVBAR ===== */
-/* Assure-toi que la navbar est bien définie */
 .navbar {
   display: flex;
   align-items: center;
@@ -10,160 +8,201 @@
   left: 0;
   width: 100%;
   height: 60px;
-  background: linear-gradient(45deg, #007bff, #0056b3);
+  background: #007bff;
   color: white;
   padding: 0 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 
-/* Ajuste les éléments de la navbar */
-.navbar mat-form-field {
-  margin-left: auto;
-  width: 250px;
-  margin-top: -10px;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
 }
 
-.navbar mat-select {
-  min-width: 180px;
+/* Spacer */
+.spacer {
+  flex: 1;
 }
 
-/* Corrige le champ de recherche */
-.navbar mat-form-field {
-  background: white;
-  border-radius: 20px;
-  padding: 5px 10px;
+/* Navbar Actions */
+.navbar-actions {
   display: flex;
   align-items: center;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 15px;
 }
 
-/* Corrige les boutons */
-.navbar button {
-  margin-left: 10px;
-}
-
-.spacer { flex: 1; }
-
-/* ===== BARRE DE RECHERCHE ===== */
-mat-form-field {
-  width: 280px;
-  margin: 8px;
-}
-
-mat-form-field input {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 30px;
-  border: none;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-mat-form-field button {
-  background-color: transparent;
-  border-radius: 50%;
-  padding: 8px;
-  transition: all 0.3s ease-in-out;
-}
-
-mat-form-field button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
-}
-/* ===== BOUTONS ===== */
-.menu-button, .profile-button, .logout-button {
-  transition: all 0.3s ease;
-  border-radius: 50%;
-  margin-top: -52px;
-  background-color: transparent;
-  display: inline-flex;
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  background: transparent;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  padding: 5px;
+  gap: 8px;
+  width: 250px;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar:hover {
+  border-bottom: 2px solid white;
+}
+
+.search-bar mat-icon {
+  color: white;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+/* ===== BUTTONS ===== */
+.menu-button, .profile-button {
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  color: white;
 }
 
 .menu-button:hover, .profile-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
 }
 
+/* ===== PROFILE MENU ===== */
+.profile-menu {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  z-index: 1001;
+}
+
+.profile-avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #007bff;
+}
+
+.profile-avatar h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* ===== LOGIN/LOGOUT BUTTONS ===== */
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.login-button mat-icon {
+  margin-right: 8px;
+}
+
 .logout-button {
-  display: block; /* S'assurer qu'il s'affiche correctement */
-  width: 100%; /* Occupe toute la largeur */
-  font-size: 16px; /* Texte plus lisible */
-  font-weight: bold;
-  text-align: center; /* Centrer le texte */
-  color: #ff3b30; /* Rouge pour la déconnexion */
-  border: 2px solid #ff3b30;
-  border-radius: 8px; /* Coins arrondis */
-  background-color: transparent;
-  transition: all 0.3s ease-in-out; /* Animation fluide */
-  cursor: pointer; /* Indique que c'est un bouton */
-  margin-top: 10px; /* Éviter que le texte ne se chevauche */
-}
-
-.logout-button:hover {
-  background-color: #ff3b30; /* Rouge au survol */
-  color: white; /* Texte blanc au survol */
-  transform: scale(1.05); /* Légère mise en avant */
-}
-
-
-/* ===== SIDENAV ===== */
-.sidebar {
-  width: 250px;
-  background-color: #f8f9fa;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 64px;
-  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-
-.sidebar h3 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-mat-list-item {
-  padding: 10px 15px;
+  width: 100%;
   font-size: 1rem;
-  color: #333;
+  font-weight: 500;
+  color: #ff3b30;
+  border: 2px solid #ff3b30;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
-mat-list-item:hover {
-  background-color: #e9ecef;
-  color: #007bff;
+.logout-button:hover {
+  background-color: #ff3b30;
+  color: white;
 }
 
-/* ===== PROFIL ===== */
+.logout-button mat-icon {
+  margin-right: 8px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidenav-container {
+  height: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section */
 .profile {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .profile img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
-.profile-menu {
-  position: absolute;
-  top: 64px;
-  right: 20px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 10px;
-  width: 200px;
-  text-align: center;
-  z-index: 1001;
+.profile h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.profile-btn {
+  font-size: 0.9rem;
+  padding: 5px 15px;
+  border-radius: 20px;
+  background-color: white; /* White background */
+  color: #007bff; /* Blue text */
+  border: 2px solid #007bff; /* Blue border */
+  transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #007bff; /* Blue on hover */
+  color: white; /* White text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .search-bar {
+    width: 150px;
+  }
 }
 
 /* ===== ALERTES ===== */
@@ -174,3 +213,5 @@ mat-list-item:hover {
   font-weight: bold;
   text-align: center;
 }
+
+

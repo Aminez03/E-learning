@@ -45,10 +45,11 @@ export class LoginComponent {
             localStorage.setItem("CC_Token", response.token);
             localStorage.setItem("role", response.user.role);
             localStorage.setItem("user", response.user);
+            localStorage.setItem("formationSessionID", response.user.formationSessionID);
             if (response.user.role === 'admin') {
               this.router.navigate(['/formations']);
             } else {
-              this.router.navigate(['/home']);
+              this.router.navigate(['/formations']);
             }
           } else {
             alert("Account is not activated yet.");
@@ -64,7 +65,12 @@ export class LoginComponent {
         let message = 'Une erreur est survenue. Veuillez réessayer.';
         if (err.status === 401) {
           message = 'Email ou mot de passe incorrect.';
-        } else if (err.status === 500) {
+        }
+        else if (err.status === 403){
+
+          message = "Votre compte n'est pas encore activé";
+          }
+         else if (err.status === 500) {
           message = 'Erreur serveur. Veuillez réessayer plus tard.';
         }
       

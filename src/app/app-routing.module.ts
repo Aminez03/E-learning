@@ -15,6 +15,9 @@ import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { LogoutComponent } from './authentification/logout/logout.component';
 import { DetailSessionComponent } from './detail-session/detail-session.component';
+import { ProfilComponent } from './profil/profil.component';
+import { ExamenComponent } from './examen/examen.component';
+import { CertifSessionComponent } from './certif-session/certif-session.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/formations', pathMatch: 'full' },
@@ -48,9 +51,15 @@ const routes: Routes = [
   { path: 'detail-formation/:id', component: DetailFormationComponent },
 
   { path: 'session/:id', component: DetailSessionComponent },
+  { path: 'examan/:id', component: ExamenComponent },
+  { path: 'profil', component: ProfilComponent },
+  
+  { path: 'certif-session/:id', component: CertifSessionComponent },
 
 
-  { path: '**', redirectTo: '/home' } // Redirection vers Home en cas de route inconnue
+  { path: '**', redirectTo: '/home' } ,// Redirection vers Home en cas de route inconnue
+
+
 ];
 
 @NgModule({

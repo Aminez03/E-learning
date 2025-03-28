@@ -104,7 +104,7 @@
                 </button>
 
 
-                <button mat-icon-button (click)="blockUser(candidat.id)" class="block-btn">
+                <button *ngIf="isAdmin()" mat-icon-button (click)="blockUser(candidat.id)" class="block-btn">
                   <mat-icon color="primary">block</mat-icon>
                 </button>
               </td>

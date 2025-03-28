@@ -1,129 +1,476 @@
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main container */
+.sidenav-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fff; /* White background as in the image */
+}
+
+/* Content wrapper */
+.content-wrapper {
+  flex-grow: 1;
+  padding: 20px;
+  padding-top: 80px; /* Account for navbar height */
+}
+
+/* Content area */
+.content {
+  width: 100%;
+  max-width: 1000px; /* Limit the width for better layout */
+
+}
+
+/* Categories container */
+.categories-container {
+  display: flex;
+  flex-wrap: nowrap; /* Keep all cards in one row */
+  gap: 10px; /* Reduced gap for a tighter layout */
+  margin-bottom: 40px;
+  justify-content: space-between; /* Distribute cards evenly */
+}
+
+/* Category card */
+.category-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px; /* Reduced padding for smaller size */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added background-color transition */
+  cursor: pointer;
+  text-align: center;
+  flex: 1; /* Allow cards to grow equally to fill the row */
+  min-width: 0; /* Prevent overflow */
+  max-width: 200px; /* Limit the maximum width */
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f0f4ff; /* Light blue background on hover */
+}
+
+.category-card h3 {
+  font-size: 0.9rem; /* Reduced font size for smaller cards */
+  color: #333;
+  margin-bottom: 5px; /* Reduced margin */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+}
+
+/* Subcategories list */
+.subcategories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.subcategories-container h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.subcategory-item {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  flex: 1 1 calc(25% - 15px); /* Adjust to fit 4 items per row */
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.subcategory-item:hover {
+  background-color: #f1f3f5;
+  transform: scale(1.02);
+}
+
+.subcategory-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Formations container */
+.formations-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
+  gap: 20px; /* Increased gap for better spacing */
+  width: 100%;
+  min-height: 0; /* Prevent overflow */
+}
+
+/* Formation card */
+.example-card {
+  width: 100%; /* Take up the full width of the grid column */
+  border-radius: 12px; /* Slightly larger border radius for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted shadow to match the image */
+  background: #fff; /* Solid white background to match the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: 400px; /* Increased height to display all information */
+  position: relative; /* Set position relative to allow absolute positioning of actions */
+  padding-bottom: 50px; /* Reserve space for the fixed actions section */
+}
+
+/* Ensure consistent card height */
+.example-card {
+  height: 400px; /* Fixed height to ensure consistency */
+}
+
+.example-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Card header */
+mat-card-header {
+  padding: 12px; /* Slightly increased padding for better spacing */
+  display: flex;
+  align-items: center;
+  border-bottom: none; /* Removed divider to match the image */
+  min-height: 60px; /* Fixed height to ensure consistency */
+}
+
+/* Avatar */
+.example-header-image {
+  display: none; /* Removed avatar to match the image */
+}
+
+/* Title and subtitle */
+.mat-card-title {
+  font-size: 1.1rem; /* Slightly larger font size */
+  color: #333;
+  font-weight: 600; /* Bolder text */
+  margin-bottom: 4px;
+}
+
+.mat-card-subtitle {
+  font-size: 0.9rem; /* Slightly larger font size */
+  color: #666;
+  font-style: normal; /* Removed italic style to match the image */
+}
+
+/* Card image */
+mat-card img {
+  width: 100%; /* Ensure the full width of the card */
+  height: 120px; /* Increased height to better fit the image */
+  object-fit: contain; /* Show the full image without cropping */
+}
+
+/* Card content */
+.mat-card-content {
+  padding: 12px; /* Slightly increased padding */
+  flex-grow: 1;
+  overflow: hidden; /* Handle overflow content */
+}
+
+/* Description */
+.mat-card-content p:first-child {
+  font-size: 0.9rem; /* Slightly larger font size */
+  color: #444;
+  margin-bottom: 8px;
+  line-height: 1.4; /* Improved readability */
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Increased to 4 lines to accommodate more text */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Duration */
+.mat-card-content p:last-child {
+  font-weight: 600; /* Bold duration text to match the image */
+  color: #333;
+  font-size: 0.9rem;
+  margin-bottom: 0; /* Remove bottom margin to save space */
+}
+
+/* Card actions */
+.mat-card-actions {
+  position: absolute; /* Fix the actions section at the bottom */
+  bottom: 0; /* Align to the bottom of the card */
+  left: 0;
+  right: 0;
+  padding: 8px 12px; /* Slightly increased padding */
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right to match the image */
+  background-color: transparent; /* Removed background to match the image */
+  border-top: none; /* Removed divider to match the image */
+  height: 50px; /* Fixed height to ensure buttons align */
+  align-items: center; /* Vertically center the buttons */
+  gap: 8px; /* Added gap between buttons to match the image */
+}
+
+.mat-card-actions button {
+  padding: 0;
+  margin: 0;
+  transition: transform 0.2s ease; /* Added a subtle hover effect */
+}
+
+.mat-card-actions button:hover {
+  transform: scale(1.1); /* Slight scale on hover */
+}
+
+/* Button styling */
+button.mat-raised-button {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+button.mat-raised-button mat-icon {
+  margin-right: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-wrapper {
+    margin-left: 200px; /* Adjust margin to match sidebar width */
+  }
+
+  .category-card {
+    flex: 1; /* Maintain equal sizing */
+    max-width: 150px; /* Smaller width for medium screens */
+  }
+
+  .subcategory-item {
+    flex: 1 1 calc(50% - 15px); /* 2 items per row */
+  }
+
+  .formations-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+
+  .example-card {
+    height: 380px; /* Slightly smaller height for medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .content-wrapper {
+    margin-left: 0; /* Remove margin when sidebar is hidden */
+  }
+
+  .category-card {
+    flex: 1; /* Maintain equal sizing */
+    max-width: 120px; /* Smaller width for small screens */
+  }
+
+  .subcategory-item {
+    flex: 1 1 100%; /* 1 item per row */
+  }
+
+  .formations-container {
+    grid-template-columns: 1fr; /* 1 column on small screens */
+  }
+
+  .example-card {
+    height: 350px; /* Smaller height for small screens */
+  }
+}
+
 /* Conteneur principal avec sidebar */
 .sidenav-container {
-    display: flex;
-    min-height: 100vh;
-    margin-top: 50px; /* Ajuster la marge pour compenser la barre de navigation */
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 250px;
-    background-color: #f8f9fa;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 64px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  }
-  
-  /* Contenu principal à côté du sidebar */
-  .content {
-  padding: 20px;
-  flex-grow: 1;
-  background-color: #ffffff; /* Couleur blanche pour le contenu */
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 500px;
+  background-color: #f8f9fa;
+  height: 100vh;
+ 
+  position: fixed;
+  left: 0;
+  top: 64px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  margin: auto;
+}
+
+/* Contenu principal à côté du sidebar */
+.content {
+  margin-top: 20px;
+padding: 20px;
+flex-grow: 1;
+background-color: #ffffff; /* Couleur blanche pour le contenu */
+border-radius: 8px; /* Coins arrondis */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-left: 150px;
+}
+
+/* Design des cartes de formations */
+.formations-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.example-card {
+  width: 300px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   border-radius: 8px; /* Coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Masquer les débordements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  background-color: #f9f9f9; /* Couleur de fond des cartes */
 
-  }
-  
-  /* Design des cartes de formations */
-  .formations-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+}
 
-  }
+.example-card:hover {
   
-  .example-card {
-    width: 300px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border-radius: 8px; /* Coins arrondis */
-    overflow: hidden; /* Masquer les débordements */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
-    background-color: #f9f9f9; /* Couleur de fond des cartes */
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus visible au survol */
+}
 
-  }
+.example-header-image {
+  background-color: lightgray;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.mat-card-title {
+  font-size: 1.2rem;
+}
+
+.mat-card-subtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+.mat-card-content p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-icon-button {
+  padding: 8px;
+}
+
+/* Styliser le bouton "Ajouter Formation" */
+button.mat-raised-button {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+button.mat-raised-button mat-icon {
+  margin-right: 8px;
+}
+
+/* Design de la navbar fixe */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.search-bar {
+  width: 300px;
+  margin-left: 20px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+.search-bar mat-icon {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.category-bar {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping if there are too many categories */
+  gap: 10px; /* Space between buttons */
+  margin-bottom: 20px; /* Space below the bar */
+  background-color: rgb(87, 140, 219);
+}
+
+.category-bar button {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.category-bar button:hover {
+  color: #007bff; /* Highlight on hover */
+}
+
+.category-bar button.active {
+  color: #007bff; /* Highlight the selected category */
+  font-weight: bold;
+}
+.add-formation-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1976d2; /* Primary color */
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+
   
-  .example-card:hover {
-    
-      transform: translateY(-10px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus visible au survol */
-  }
-  
-  .example-header-image {
-    background-color: lightgray;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-  }
-  
-  .mat-card-title {
-    font-size: 1.2rem;
-  }
-  
-  .mat-card-subtitle {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .mat-card-content p {
-    font-size: 0.9rem;
-    color: #333;
-  }
-  
-  .mat-card-actions {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .mat-icon-button {
-    padding: 8px;
-  }
-  
-  /* Styliser le bouton "Ajouter Formation" */
-  button.mat-raised-button {
-    margin-bottom: 20px;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  button.mat-raised-button mat-icon {
-    margin-right: 8px;
-  }
-  
-  /* Design de la navbar fixe */
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .spacer {
-    flex: 1;
-  }
-  
-  .search-bar {
-    width: 300px;
-    margin-left: 20px;
-    border-radius: 4px;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .search-bar input {
-    border-radius: 4px;
-    padding: 6px 12px;
-  }
-  
-  .search-bar mat-icon {
-    color: rgba(0, 0, 0, 0.5);
-  }
-  
+}
+
+.add-formation-button mat-icon {
+  margin-right: 8px;
+}
+
+.add-formation-button:hover {
+  background-color: #1565c0; /* Darker shade of primary color */
+}
+
+.add-formation-button:active {
+  background-color: #0d47a1; /* Even darker shade of primary color */
+}

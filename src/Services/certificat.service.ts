@@ -7,27 +7,21 @@ import { Certificat } from 'src/Models/Certificat';
   providedIn: 'root'
 })
 export class CertificatService {
-  private apiUrl = 'http://localhost:3000/certificats';
+  private apiUrl = 'https://ihm-eta.vercel.app/api/api/certificats';
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Certificat[]> {
-    return this.http.get<Certificat[]>(this.apiUrl);
-  }
+ 
+// Récupérer tous les certificats
+getAllCertificats(): Observable<any[]> {
+  return this.http.get<any[]>(this.apiUrl);
+}
 
-  getById(id: number): Observable<Certificat> {
-    return this.http.get<Certificat>(`${this.apiUrl}/${id}`);
-  }
+// Récupérer un certificat par ID
+getCertificatById(id: number): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}/${id}`);
+}
 
-  create(certificat: Certificat): Observable<Certificat> {
-    return this.http.post<Certificat>(this.apiUrl, certificat);
-  }
 
-  update(id: number, certificat: Certificat): Observable<Certificat> {
-    return this.http.put<Certificat>(`${this.apiUrl}/${id}`, certificat);
-  }
 
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
 }

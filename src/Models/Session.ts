@@ -5,6 +5,7 @@ export interface Session {
     statut: string;
     capacite: number;
     nombreInscrits: number;
+    nombreCours: number;
     formationID: number; // Clé étrangère
     formateurID :number; // Clé étrangère
               

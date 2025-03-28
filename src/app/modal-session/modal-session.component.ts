@@ -13,7 +13,7 @@ import * as moment from 'moment';
   styleUrls: ['./modal-session.component.css']
 })
 export class ModalSessionComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'nomFormation', 'dateDebut','nombreInscrits', 'dateFin', 'capacite', 'formateur', 'actions'];
+  displayedColumns: string[] = ['id', 'nomFormation', 'dateDebut','nombreInscrits','nombreCours', 'dateFin', 'capacite', 'formateur', 'actions'];
 
   form!: FormGroup;
   formations: any[] = [];
@@ -35,6 +35,7 @@ if(data){
     statut: new FormControl(data.statut , [Validators.required]),
     capacite: new FormControl(data.capacite , [Validators.required, Validators.min(1)]),
     nombreInscrits: new FormControl(data.nombreInscrits, [Validators.required, Validators.min(0)]),
+    nombreCours: new FormControl(data.nombreCours, [Validators.required, Validators.min(0)]),
     formationID: new FormControl(data.formationID , [Validators.required]),
     formateurID: new FormControl(data.formateurID , [Validators.required])
   });
@@ -47,6 +48,7 @@ else{
       statut: new FormControl( null, [Validators.required]),
       capacite: new FormControl( null, [Validators.required, Validators.min(1)]),
       nombreInscrits: new FormControl( null, [Validators.required, Validators.min(0)]),
+      nombreCours: new FormControl( null, [Validators.required, Validators.min(0)]),
       formationID: new FormControl( null, [Validators.required]),
       formateurID: new FormControl( null, [Validators.required])
     });

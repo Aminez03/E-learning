@@ -19,7 +19,7 @@ export class DetailFormationComponent {
   formation: Formation | undefined;
   sessions: Session[] = [];
   formateurs: { [key: number]: any } = {}; // Dictionnaire pour stocker les détails des formateurs
-  displayedColumns: string[] = ['dateDebut', 'dateFin', 'statut', 'capacite', 'nombreInscrits', 'formateurID', 'actions'];
+  displayedColumns: string[] = ['dateDebut', 'dateFin', 'statut', 'capacite', 'nombreInscrits','nombreCours', 'formateurID', 'actions'];
   constructor(
     private FS: FormationService,
     private route: ActivatedRoute,
@@ -140,6 +140,9 @@ export class DetailFormationComponent {
     }
   }
 
-  
+  isAdmin(): boolean {
+    return this.userService.isAdmin();
+  }
+
 
 }

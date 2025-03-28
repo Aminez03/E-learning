@@ -78,4 +78,8 @@ export class DetailSessionComponent {
       }
     });
   }
+  isAdmin(): boolean {
+    return this.userService.isAdmin();
+  }
+
 }

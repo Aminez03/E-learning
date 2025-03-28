@@ -1,56 +1,44 @@
-<mat-toolbar color="primary" class="navbar">
-    
-    <span>E-learning</span>
-
-    
-<!-- sidebar.component.html -->
- <mat-form-field>
-  <mat-label>Categorie</mat-label>
-  <mat-select (selectionChange)="onCategorieChange($event.value)">
-    <mat-option *ngFor="let category of Categories" [value]="category.id">
-      {{ category.nomCategorie }}
-    </mat-option>
-  </mat-select>
-</mat-form-field> 
 
 
-<mat-form-field *ngIf="sousCategories.length > 0">
-  <mat-label>SousCategorie</mat-label>
-  <mat-select (selectionChange)="onSousCategorieChange($event.value)">
-    <mat-option *ngFor="let sousCategory of sousCategories" [value]="sousCategory.id">
-      {{ sousCategory.nomSousCategorie }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-
-
-
+  <mat-toolbar color="primary" class="navbar">
+    <span class="logo">E-learning</span>
     <span class="spacer"></span>
-
-    <mat-form-field>
-      <input matInput type="search">
-      <button matSuffix mat-icon-button aria-label="Search">
-        <mat-icon>search</mat-icon>
-      </button>
-    </mat-form-field>
- 
   
+    <div class="navbar-actions">
+      <!-- Clean Search Bar -->
+      <div class="search-bar">
 
-    <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
-    <mat-icon>menu</mat-icon>
-    </button>
 
-    <button mat-icon-button (click)="toggleProfileMenu()" class="profile-button">
+<mat-icon>search</mat-icon>
+   
+        <input matInput type="search" [(ngModel)]="searchTerm" (input)="filterFormations()" placeholder="Rechercher..." />
+      
+          
+    
+
+      </div>
+  
+      <!-- Menu Button -->
+      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+  
+      <!-- Profile Button -->
+      <button mat-icon-button (click)="toggleProfileMenu()" class="profile-button">
         <mat-icon>account_circle</mat-icon>
       </button>
-   
-  
-
-
-
-
-
+    </div>
   </mat-toolbar>
+
+
+
+
+
+
+
+
+
+
   <div *ngIf="isProfileMenuOpen" class="profile-menu">
 
 
@@ -86,17 +74,22 @@
     
         <img [src]="userData.avatar || 'assets/image/pic-1.jpg'" alt="Photo de Profil" class="avatar">
         <h3>{{ userData.nom || 'Utilisateur' }}</h3>
-        <button mat-button color="primary" class="profile-btn">View Profile</button>
-      </div>
+
+
+
+        <button mat-button class="profile-btn" routerLink="/profil">View Profile</button>      </div>
+
+
+
 
       <mat-nav-list>
-        <a mat-list-item routerLink="/home">
+        <a mat-list-item routerLink="/formations">
           <mat-icon>home</mat-icon> Home
         </a>
         <a mat-list-item routerLink="/about">
           <mat-icon>help</mat-icon> About
         </a>
-        <a mat-list-item routerLink="/formations">
+        <a mat-list-item routerLink="/cours">
           <mat-icon>school</mat-icon> Courses
         </a>
         <a mat-list-item routerLink="/teachers">

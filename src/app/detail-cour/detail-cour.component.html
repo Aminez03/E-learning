@@ -37,15 +37,49 @@
               <mat-card-content>
                   <p><strong>Description :</strong> {{ cour.description }}</p>
                   <mat-card-content>
-                      <video width="100%" controls>
-                          <source src="{{ cour.videoURL }}" type="video/mp4" />
-                          Votre navigateur ne supporte pas la lecture de vidéos.
+                    <video width="100%" controls (click)="onVideoClick($event)">
+                        <source src="{{ cour.videoURL }}" type="video/mp4" />
+                        Votre navigateur ne supporte pas la lecture de vidéos.
                       </video>
                   </mat-card-content>
               </mat-card-content>
           </mat-card>
-
+          <div class="container">
+            <div *ngIf="progression; else loading">
+              <mat-card class="progress-card">
+                <mat-card-content>
+                  <h2 class="progress-heading">Votre progression</h2>
           
+                  <!-- MatProgressSpinner to display progression -->
+                  <mat-progress-spinner
+                    class="progress-spinner"
+                    [mode]="'determinate'"
+                    [value]="progressionValue"
+                    [strokeWidth]="5">
+                  </mat-progress-spinner>
+          
+                  <!-- Display progression percentage below the spinner -->
+                  <p class="progress-percentage">
+                    {{ progressionValue }}%
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          
+            <!-- Template for loading state -->
+            <ng-template #loading>
+              <div class="loading-container">
+                <mat-spinner></mat-spinner>
+                <p>Chargement des données...</p>
+              </div>
+            </ng-template>
+          </div>
+
+
       </div>
+
+
+
+
   </div>
 </div>

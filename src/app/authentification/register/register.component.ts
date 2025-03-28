@@ -18,12 +18,16 @@ export class RegisterComponent {
     private router: Router
   ) {
     this.registerForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      nom: ['', Validators.required],
+      prenom: ['', Validators.required],
+      dateNaissance: ['', Validators.required],
+      numeroTelephone: ['', Validators.required],
+      adresse: ['', Validators.required],
+      adresseMail: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password_confirmation: ['', Validators.required],
       avatar: [''],
-      role: ['user', Validators.required] // ✅ Ensure role is included
+      role: ['candidat', Validators.required] // ✅ Ensure role is included
     });
   }
 
@@ -47,7 +51,7 @@ export class RegisterComponent {
       },
       error: (err) => {
         console.error('Registration error:', err);
-        alert('Registration failed. ' + (err.error?.message || 'Please try again.'));
+        alert('Registration failed. Response: ' + JSON.stringify(err.error));
         this.loading = false;
       }
     });

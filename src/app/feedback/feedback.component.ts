@@ -48,7 +48,7 @@ export class FeedbackComponent {
   
 
   loadUserId() {
-    this.authService.profile().subscribe({
+    this.authService.profil().subscribe({
       next: (data) => {
         this.candidatData = data; // Stocke les données dans userData
         console.log(this.candidatData);
