@@ -151,6 +151,11 @@ export class CourComponent implements OnInit, AfterViewInit {
   isFormateur(): boolean {
     return this.authService.isFormateur();
   }
+  iscandidat():boolean{
+    return this.authService.iscandidat();
+  }
+
+
 
   loadSessionAndProgression(sessionId: number): void {
     forkJoin({

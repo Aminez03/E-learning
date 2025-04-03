@@ -20,6 +20,8 @@ export class DetailFormationComponent {
   sessions: Session[] = [];
   formateurs: { [key: number]: any } = {}; // Dictionnaire pour stocker les détails des formateurs
   displayedColumns: string[] = ['dateDebut', 'dateFin', 'statut', 'capacite', 'nombreInscrits','nombreCours', 'formateurID', 'actions'];
+  
+  userData: any = {};
   constructor(
     private FS: FormationService,
     private route: ActivatedRoute,
@@ -27,6 +29,8 @@ export class DetailFormationComponent {
     private snackBar: MatSnackBar,
      private dialog: MatDialog,
         private userService: AuthService,
+        private authService:AuthService,
+       
 
   ) {}
 
@@ -34,6 +38,7 @@ export class DetailFormationComponent {
     this.fetchData();
     this.loadSessions();
     console.log('formateurs:', this.formateurs);
+    console.log("user",this.userData)
   }
 
   fetchData(): void {
@@ -143,6 +148,24 @@ export class DetailFormationComponent {
   isAdmin(): boolean {
     return this.userService.isAdmin();
   }
+  iscandidat():boolean{
+    return this.authService.iscandidat();
+  }
 
-
+  
+  loadUserProfile() {
+    this.userService.profil().subscribe({
+      next: (data) => {
+        this.userData = data; // Stocke les données dans userData
+        console.log(this.userData);
+      },
+      error: (err) => {
+        console.error('Erreur lors de la récupération du profil:', err);
+      }
+    });
+  }
+  isInscrit(): boolean {
+    return this.userData?.formationSessionID != null; // Vérifie si formationSessionID existe
+  }
+  
 }

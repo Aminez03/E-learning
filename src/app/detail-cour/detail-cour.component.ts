@@ -7,6 +7,7 @@ import { SessionProgression } from 'src/Models/SessionProgression';
 import { CourService } from 'src/Services/cour.service';
 import { SessionProgressionService } from 'src/Services/session-progression.service';
 import { SessionService } from 'src/Services/session.service';
+import { AuthService } from '../authentification/auth.service';
 
 @Component({
   selector: 'app-detail-cour',
@@ -27,7 +28,8 @@ export class DetailCourComponent implements OnInit {
     private route: ActivatedRoute,
     private courService: CourService,
     private sessionProgressionService: SessionProgressionService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private authService:AuthService
   ) {}
 
   ngOnInit(): void {
@@ -110,5 +112,9 @@ updateProgression(): void {
     this.errorMessage = message;
     this.isLoading = false;
     console.error(message, error);
+  }
+
+  iscandidat():boolean{
+    return this.authService.iscandidat();
   }
 }

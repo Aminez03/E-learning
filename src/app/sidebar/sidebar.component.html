@@ -2,6 +2,10 @@
 
   <mat-toolbar color="primary" class="navbar">
     <span class="logo">E-learning</span>
+      <!-- Menu Button -->
+      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
     <span class="spacer"></span>
   
     <div class="navbar-actions">
@@ -18,10 +22,7 @@
 
       </div>
   
-      <!-- Menu Button -->
-      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
-        <mat-icon>menu</mat-icon>
-      </button>
+    
   
       <!-- Profile Button -->
       <button mat-icon-button (click)="toggleProfileMenu()" class="profile-button">
@@ -29,22 +30,11 @@
       </button>
     </div>
   </mat-toolbar>
-
-
-
-
-
-
-
-
-
-
   <div *ngIf="isProfileMenuOpen" class="profile-menu">
-
 
     <div class="profile-avatar">
       <img [src]="userData.avatar || 'assets/image/pic-1.jpg'" alt="Photo de Profil" class="avatar">
-      <h3>{{ userData.nom || 'Utilisateur' }}</h3>
+      <h3>{{ userData.nom || 'Utilisateur' }} {{ userData.prenom || ''}}</h3>
 
 
       <button mat-button routerLink="/login"   class="login-button">
@@ -73,7 +63,7 @@
       <div class="profile">
     
         <img [src]="userData.avatar || 'assets/image/pic-1.jpg'" alt="Photo de Profil" class="avatar">
-        <h3>{{ userData.nom || 'Utilisateur' }}</h3>
+        <h3>{{ userData.nom || 'Utilisateur' }} {{ userData.prenom || ''}}</h3>
 
 
 

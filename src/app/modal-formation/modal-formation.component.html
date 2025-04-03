@@ -40,7 +40,9 @@
 
 <mat-form-field *ngIf="sousCategories.length > 0">
   <!-- <mat-label>{{SousCategorie.nomSousCategorie}}</mat-label> -->
+  <mat-label>Sous Categorie</mat-label>
   <mat-select formControlName="sousCategorieID">
+    
     <mat-option *ngFor="let sousCategorie of sousCategories" [value]="sousCategorie.id">
       {{ sousCategorie.nomSousCategorie }}
     </mat-option>

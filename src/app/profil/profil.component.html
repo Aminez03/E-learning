@@ -1,0 +1,46 @@
+<div class="profile-container" *ngIf="user">
+    <mat-card class="profile-card">
+        <div class="profile-header">
+            <div class="avatar-container">
+                <img [src]="user.avatar || 'assets/images/avatar.jpg'" alt="User Avatar" class="profile-avatar">
+                <div class="avatar-overlay">
+                    <i class="material-icons">camera_alt</i>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-info">
+            <h2 class="profile-name">{{ user.nom }} {{ user.prenom }}</h2>
+            <div class="info-row">
+                <div class="info-item">
+                    <i class="material-icons">email</i>
+                    <span>{{ user.adresseMail }}</span>
+                </div>
+                <div class="info-item">
+                    <i class="material-icons">phone</i>
+                    <span>{{ user.numeroTelephone }}</span>
+                </div>
+                <div class="info-item">
+                    <i class="material-icons">home</i>
+                    <span>{{ user.adresse }}</span>
+                </div>
+                <div class="info-item">
+                    <i class="material-icons">cake</i>
+                    <span>{{ user.dateNaissance }}</span>
+                </div>
+                
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="button-group">
+            <button mat-raised-button class="edit-button" (click)="openEditDialog()">
+                <i class="material-icons">edit</i> Modifier
+            </button>
+            <button mat-raised-button class="save-button" (click)="logout()">
+                <i class="material-icons">logout</i> Déconnexion
+            </button>
+        </div>
+    </mat-card>
+</div>

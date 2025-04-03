@@ -46,24 +46,21 @@
       
     </div>
 
-    <div class="container">
+    <div class="container" *ngIf="iscandidat()">
       <div *ngIf="progression; else loading">
         <mat-card class="progress-card">
           <mat-card-content>
             <h2 class="progress-heading">Votre progression</h2>
-    
-            <!-- MatProgressSpinner to display progression -->
-            <mat-progress-spinner
-              class="progress-spinner"
-              [mode]="'determinate'"
-              [value]="progressionValue"
-              [strokeWidth]="5">
-            </mat-progress-spinner>
-    
-            <!-- Display progression percentage below the spinner -->
-            <p class="progress-percentage">
-              {{ progressionValue }}%
-            </p>
+            <div class="spinner-container">
+              <mat-progress-spinner
+                class="progress-spinner"
+                [mode]="'determinate'"
+                [value]="progressionValue"
+                [strokeWidth]="5">
+              </mat-progress-spinner>
+              <div class="progress-value">{{ progressionValue }}%</div>
+            </div>
+            
           </mat-card-content>
         </mat-card>
 
@@ -76,8 +73,8 @@
       </div>
     
       <!-- Template for loading state -->
-      <ng-template #loading>
-        <div class="loading-container">
+      <ng-template #loading >
+        <div class="loading-container" *ngIf="iscandidat()">
           <mat-spinner></mat-spinner>
           <p>Chargement des données...</p>
         </div>
